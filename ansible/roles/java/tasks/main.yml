@@ -1,22 +1,22 @@
 ---
- - name: install software-properties-common
+ - name: Install software-properties-common
    apt: pkg=software-properties-common state=present update_cache=yes
 
- - name: install python-software-properties
+ - name: Install python-software-properties
    apt: pkg=python-software-properties state=present update_cache=yes
    when: ansible_distribution_release == "precise"
 
- - name: apt add webupd8 ppa repository
+ - name: Add ppa:webupd8/java Repository
    apt_repository: repo='ppa:webupd8team/java'
 
- - name: update
+ - name: Apt update
    shell: apt-get update
 
- - name: auto accept oracle jdk license
+ - name: Auto accept oracle jdk license
    shell: echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections
 
- - name: install java8
-   shell: apt-get install -y oracle-java8-installer ca-certificates
+ - name: Install JDK8
+   command: apt-get install -y oracle-java8-installer ca-certificates
 
- - name: env JAVA_HOME
+ - name: Add env JAVA_HOME
    shell: echo 'export JAVA_HOME=/usr/lib/jvm/oracle-java8-installer' >> ~/.bashrc
