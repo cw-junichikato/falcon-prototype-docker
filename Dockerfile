@@ -21,6 +21,6 @@ ENV PYTHONPATH /opt/ansible/lib
 ENV ANSIBLE_LIBRARY /opt/ansible/library
 
 ADD ansible .
-RUN ansible-playbook playbook.yml -c local
+RUN ansible-playbook site.yml -c local
 
 
