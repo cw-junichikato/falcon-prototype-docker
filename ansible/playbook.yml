@@ -1,4 +1,5 @@
 - hosts: local
   roles: 
     - { role: java }
+    - { role: sbt }
     - { role: jsvc }
