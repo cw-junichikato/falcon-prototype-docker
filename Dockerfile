@@ -2,6 +2,7 @@ FROM ubuntu:14.04
 MAINTAINER j5ik2o <j5ik2o@gmail.com>
 
 RUN apt-get -y update && \
+    apt-get -y upgrade && \
     apt-get install -y \
         python-yaml python-jinja2 \
         python-httplib2 python-keyczar \
