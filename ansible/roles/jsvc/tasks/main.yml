@@ -1,6 +1,6 @@
 ---
  - name: Dowanload commons-daemon
-   get_url: url=http://ftp.riken.jp/net/apache//commons/daemon/source/commons-daemon-1.0.15-src.tar.gz  dest="{{ tmp.path }}"
+   get_url: url="{{ commons_daemon_url }}"  dest="{{ tmp.path }}"
 
  - name: Unarchive commons-daemon
    unarchive: src="{{ commons_daemon_tgz_path  }}" dest="{{ tmp.path }}"

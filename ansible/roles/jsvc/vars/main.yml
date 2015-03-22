@@ -2,7 +2,9 @@
 tmp:
     path: /tmp
 commons_daemon_version: 1.0.15
-commons_daemon_tgz_path: "{{ tmp.path }}/commons-daemon-{{ commons_daemon_version }}-src.tar.gz"
+commons_daemon_file_name: "commons-daemon-{{ commons_daemon_version }}-src.tar.gz"
+commons_daemon_url: "http://ftp.riken.jp/net/apache//commons/daemon/source/{{ commons_daemon_file_name }}"
+commons_daemon_tgz_path: "{{ tmp.path }}/{{ commons_daemon_file_name  }}"
 commons_daemon_build_path: "{{ tmp.path }}/commons-daemon-{{ commons_daemon_version }}-src/src/native/unix"
 commons_daemon_build_jsvc_path: "{{ commons_daemon_build_path }}/jsvc"
 commons_daemon_install_path: "/opt/jsvc/bin"
