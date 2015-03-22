@@ -1,0 +1,9 @@
+---
+ - name: Add apt repository
+   shell: echo "deb http://dl.bintray.com/sbt/debian /" | sudo tee -a /etc/apt/sources.list.d/sbt.list
+
+ - name: Apt update
+   command: apt-get update
+
+ - name: Install sbt
+   apt: name=sbt force=yes
