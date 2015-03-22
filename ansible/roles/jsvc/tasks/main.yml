@@ -1,0 +1,27 @@
+---
+ - name: Dowanload commons-daemon
+   get_url: url=http://ftp.riken.jp/net/apache//commons/daemon/source/commons-daemon-1.0.15-src.tar.gz  dest="{{ tmp.path }}"
+
+ - name: Unarchive commons-daemon
+   unarchive: src="{{ commons_daemon_tgz_path  }}" dest="{{ tmp.path }}"
+
+ - name: BuildConf jsvc
+   command: sh support/buildconf.sh
+   args: 
+     chdir: "{{ commons_daemon_build_path }}"
+
+ - name: Configure jsvc
+   command: ./configure --with-java=/usr/lib/jvm/java-8-oracle
+   args: 
+     chdir: "{{ commons_daemon_build_path }}"
+
+ - name: Make jsvc
+   command: make
+   args: 
+     chdir: "{{ commons_daemon_build_path }}"
+
+ - name: Make Directory for jsvc
+   file: path={{ commons_daemon_install_path }} state=directory
+
+ - name: Install jsvc
+   copy: src={{ commons_daemon_build_jsvc_path }} dest={{ commons_daemon_install_jsvc_path }} owner=root group=root mode=755

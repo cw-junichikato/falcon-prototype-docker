@@ -18,3 +18,5 @@
  - name: install java8
    shell: apt-get install -y oracle-java8-installer ca-certificates
 
+ - name: env JAVA_HOME
+   shell: echo 'export JAVA_HOME=/usr/lib/jvm/oracle-java8-installer' >> ~/.bashrc
